@@ -73,3 +73,4 @@ gem 'kaminari'
 gem 'rails-i18n'
 gem 'google-analytics-rails', '1.1.1'
 gem 'meta-tags'
+gem 'dotenv-rails
