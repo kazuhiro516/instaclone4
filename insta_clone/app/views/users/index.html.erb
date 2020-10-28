@@ -1,0 +1,15 @@
+<% provide(:title, "全てのユーザー") %>
+<div class="container">
+  <h1 class="text-center">全てのユーザー</h1>
+    <ul class="users">
+      <% @search_users.each do |user| %>
+        <li>
+          <%= image_tag avatar_url(user) %>
+          <%= link_to user.name, user %>
+        </li>
+      <% end %>
+    </ul>
+    <div class="pagination justify-content-center my-5">
+      <%= paginate @user_all %>
+    </div>
+</div>

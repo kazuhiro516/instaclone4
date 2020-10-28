@@ -1,0 +1,34 @@
+<% provide(:title, "プロフィール") %>
+<div class="profile-wrap">
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <%= image_tag avatar_url(@user), class: "round-img" %>
+      <div class="my-4">
+        <%= render 'follow_form' %>
+      </div>
+        <%= render 'stats' %>
+      <div class="my-4 border text-left">
+        <%= @user.introduction %>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="container">
+        <div class="row ">
+          <h1><%= @user.name %></h1>
+            <% if @user == current_user %>
+              <p><%= @user.email %></p>
+              <%= link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-outline-dark common-btn edit-profile-btn" %>
+            <% end %>
+          <h3>投稿数 <%= @user.posts.count %></h3>
+          <div class="img">
+            <% @post.each do |post| %>
+              <%= link_to(post_path(post)) do %>
+                <%= image_tag post.photos.first.image.url(:medium), class: "images" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>

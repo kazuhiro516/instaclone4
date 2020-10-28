@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | InstaClone</title>
+    <%= display_meta_tags(default_meta_tags) %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= analytics_init if GoogleAnalytics.valid_tracker? %>
+  </head>
+  <body>
+    <div id="wrapper">
+       <%= render 'partial/navbar' if current_user %>
+            <% if flash[:notice] %>
+              <div class="alert alert-info"><%= flash[:notice] %></div>
+            <% end %>
+            <% if flash[:alert] %>
+              <div class="alert alert-danger"><%= flash[:alert] %></div>
+            <% end %>
+          <div class="container">
+            <%= yield %>
+          </div>
+       <%= render 'partial/footer' %>
+    </div>
+  </body>
+</html>

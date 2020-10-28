@@ -1,0 +1,11 @@
+<% provide(:title, "ようこそ") %>
+  <div class="container mt-5 ">
+    <div class="jumbotron jumbotron-fluid bg-light">
+      <h1 class="display-4">InstaCloneへようこそ！</h1>
+      <p class="lead">さぁ、共通の趣味をもった友達とつながろう。InstaCloneはあらゆるユーザーと自由につながれるSNSサービスです。</p>
+      <hr class="my-4">
+      <p>さっそく使ってみよう！初めての人は新規登録から進んでください。</p>
+      <%= link_to '新規登録', new_user_registration_path, class: "btn btn-primary btn-lg" %>
+      <%= link_to 'ログイン', new_user_session_path, class: "btn btn-outline-secondary btn-lg" %>
+    </div>
+  </div>
